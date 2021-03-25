@@ -8,7 +8,7 @@ public class FirstPersonCharacter : MonoBehaviour
 
     public ApplePieToggler applePieToggler;
 
-    public CollectionWidget collectionWidget;
+    public GameConductor gameConductor;
 
     public int finalBatteryCount = 5;
 
@@ -27,7 +27,7 @@ public class FirstPersonCharacter : MonoBehaviour
 
     public void CollectBattery()
     {
-        collectionWidget.addCount();
+        gameConductor.addRedCount();
     }
 }
 
