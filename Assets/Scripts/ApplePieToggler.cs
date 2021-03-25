@@ -2,6 +2,8 @@
 
 public class ApplePieToggler : MonoBehaviour
 {
+    public Renderer rend; // = gameObject.GetComponent<Renderer>();
+
     public void Start()
     {
         //Renderer rend = gameObject.GetComponent<Renderer>();
@@ -14,7 +16,7 @@ public class ApplePieToggler : MonoBehaviour
         //{
         //    rend.enabled = true;
         //}
-        Renderer rend = gameObject.GetComponent<Renderer>();
+        rend = gameObject.GetComponent<Renderer>();
         rend.enabled = false;
     }
 }
