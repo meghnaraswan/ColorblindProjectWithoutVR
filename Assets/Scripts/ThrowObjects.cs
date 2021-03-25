@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿//using System.Collections;
+//using System.Collections.Generic;
 using UnityEngine;
 
 public class ThrowObjects : MonoBehaviour
@@ -13,6 +13,7 @@ public class ThrowObjects : MonoBehaviour
     private AudioSource audio;
     public int dmg;*/
     private bool touched = false;
+    public Rigidbody rb;
 
 /*    void Start()
     {
@@ -22,40 +23,47 @@ public class ThrowObjects : MonoBehaviour
     void Update()
     {
         float dist = Vector3.Distance(gameObject.transform.position, player.position);
-        if (dist <= 2.5f)
-        {
-            hasPlayer = true;
-        }
-        else
-        {
-            hasPlayer = false;
-        }
-        if (hasPlayer && Input.GetButtonDown("Use"))
-        {
-            GetComponent<Rigidbody>().isKinematic = true;
-            transform.parent = playerCam;
-            beingCarried = true;
-        }
+        hasPlayer = (dist <= 2.5f);
+        //if (dist <= 2.5f)
+        //{
+        //    hasPlayer = true;
+        //}
+        //else
+        //{
+        //    hasPlayer = false;
+        //}
+
+        //if (hasPlayer && Input.GetButtonDown("Use"))
+        //{
+        //    //GetComponent<Rigidbody>().isKinematic = true;
+        //    rb.isKinematic = true;
+        //    transform.parent = playerCam;
+        //    beingCarried = true;
+        //}
         if (beingCarried)
         {
             if (touched)
             {
-                GetComponent<Rigidbody>().isKinematic = false;
+                //GetComponent<Rigidbody>().isKinematic = false;
+                rb.isKinematic = false;
                 transform.parent = null;
                 beingCarried = false;
                 touched = false;
             }
             if (Input.GetMouseButtonDown(0))
             {
-                GetComponent<Rigidbody>().isKinematic = false;
+                //GetComponent<Rigidbody>().isKinematic = false;
+                rb.isKinematic = false;
                 transform.parent = null;
                 beingCarried = false;
-                GetComponent<Rigidbody>().AddForce(playerCam.forward * throwForce);
-/*                RandomAudio();*/
+                //GetComponent<Rigidbody>().AddForce(playerCam.forward * throwForce);
+                //rb.AddForce(playerCam.forward * throwForce);
+                /*                RandomAudio();*/
             }
             else if (Input.GetMouseButtonDown(1))
             {
-                GetComponent<Rigidbody>().isKinematic = false;
+                //GetComponent<Rigidbody>().isKinematic = false;
+                rb.isKinematic = false;
                 transform.parent = null;
                 beingCarried = false;
             }

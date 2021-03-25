@@ -1,20 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ApplePieToggler : MonoBehaviour
 {
-    public void ToggleVisiblity()
+    public void Start()
     {
-        Renderer rend = gameObject.GetComponent<Renderer>();
+        //Renderer rend = gameObject.GetComponent<Renderer>();
 
-        if (rend.enabled)
-        {
-            rend.enabled = false;
-        }
-        else
-        {
-            rend.enabled = true;
-        }
+        //if (rend.enabled)
+        //{
+        //    rend.enabled = false;
+        //}
+        //else
+        //{
+        //    rend.enabled = true;
+        //}
+        Renderer rend = gameObject.GetComponent<Renderer>();
+        rend.enabled = false;
     }
 }
