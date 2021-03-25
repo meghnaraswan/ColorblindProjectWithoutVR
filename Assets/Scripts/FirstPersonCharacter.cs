@@ -27,7 +27,7 @@ public class FirstPersonCharacter : MonoBehaviour
 
     public void CollectBattery()
     {
-        collectionWidget.CurrentCount = BatteryCount += 1;
+        collectionWidget.addCount();
     }
 }
 

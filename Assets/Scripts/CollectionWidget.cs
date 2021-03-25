@@ -2,16 +2,36 @@
 
 public class CollectionWidget : MonoBehaviour
 {
-    public string BatteryCount;
+    //public string BatteryCount;
+    static int MAX_COUNT = 5;
+
+    private int currentCount = 0;
+
     public int CurrentCount
     {
-        get { return CurrentCount; }
-        set { CurrentCount = value; }
+        get { return this.currentCount; }
+        set { this.currentCount = value; }
     }
-    public string SetCollectibleText()
+
+    public void addCount()
     {
-        BatteryCount = CurrentCount.ToString();
-        BatteryCount += "/5";
-        return BatteryCount;
+        this.currentCount++;
     }
+
+    public void subCount()
+    {
+        this.currentCount--;
+    }
+
+    public string CurrentCountDisplay
+    {
+        get { return CurrentCount.ToString() + "/" + CollectionWidget.MAX_COUNT.ToString(); }
+    }
+
+    //public string SetCollectibleText()
+    //{
+    //    BatteryCount = CurrentCount.ToString();
+    //    BatteryCount += "/5";
+    //    return BatteryCount;
+    //}
 }
