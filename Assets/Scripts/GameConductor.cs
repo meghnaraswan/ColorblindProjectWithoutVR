@@ -1,5 +1,3 @@
-//using System.Collections;
-//using System.Collections.Generic;
 using UnityEngine;
 
 public class GameConductor : MonoBehaviour
@@ -14,24 +12,56 @@ public class GameConductor : MonoBehaviour
         get { return this.greenCount + this.redCount; }
     }
 
-    public void addRedCount()
+    public bool addRedCount()
     {
-        this.redCount++;
+        if (TotalCount == MAX_TOTAL_COUNT)
+        {
+            return false;
+        }
+        else
+        {
+            this.redCount++;
+            return true;
+        }
     }
 
-    public void subtractRedCount()
+    public bool subtractRedCount()
     {
-        this.redCount--;
+        if (TotalCount == 0)
+        {
+            return false;
+        }
+        else
+        {
+            this.redCount--;
+            return true;
+        }
     }
 
-    public void addGreenCount()
+    public bool addGreenCount()
     {
-        this.greenCount++;
+        if (TotalCount == MAX_TOTAL_COUNT)
+        {
+            return false;
+        }
+        else
+        {
+            this.greenCount++;
+            return true;
+        }
     }
 
-    public void subtractGreenCount()
+    public bool subtractGreenCount()
     {
-        this.greenCount--;
+        if (TotalCount == 0)
+        {
+            return false;
+        }
+        else
+        {
+            this.greenCount--;
+            return true;
+        }
     }
 
     public string TotalCountDisplay
@@ -44,5 +74,13 @@ public class GameConductor : MonoBehaviour
         get { return "Red: " + this.redCount.ToString(); }
     }
 
+    public bool IsPieReady()
+    {
+        return (redCount == MAX_TOTAL_COUNT);
+    }
 
+    public bool IsBucketFull()
+    {
+        return (TotalCount == MAX_TOTAL_COUNT);
+    }
 }
