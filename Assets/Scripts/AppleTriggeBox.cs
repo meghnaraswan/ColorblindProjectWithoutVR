@@ -71,6 +71,7 @@ public class AppleTriggeBox : MonoBehaviour
             Debug.Log("Green: Total:" + gameConductor.TotalCountDisplay + "::" + gameConductor.RedCountDisplay);
             DisplayOnCanvas();
         }
+        ShowPie();
     }
 
     void DisplayOnCanvas()
@@ -87,6 +88,7 @@ public class AppleTriggeBox : MonoBehaviour
             m_oldColor = triggerRenderer.material.color;
             triggerRenderer.material.color = Color.yellow;
             applePieToggler.rend.enabled = true;
+            gameConductor.CompleteLevel();
         }
         else
         {
