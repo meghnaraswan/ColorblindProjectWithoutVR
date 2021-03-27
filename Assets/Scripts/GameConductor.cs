@@ -8,7 +8,7 @@ public class GameConductor : MonoBehaviour
     private int redCount = 0;
     private int greenCount = 0;
 
-    public GameObject completeLevelUI;
+    //public GameObject completeLevelUI;
 
     public GameObject sorryUI;
 
@@ -89,10 +89,10 @@ public class GameConductor : MonoBehaviour
         return (TotalCount == MAX_TOTAL_COUNT);
     }
 
-    public void CompleteLevel()
-    {
-        completeLevelUI.SetActive(true);
-    }
+    //public void CompleteLevel()
+    //{
+    //    completeLevelUI.SetActive(true);
+    //}
 
     public void SorryMessage()
     {

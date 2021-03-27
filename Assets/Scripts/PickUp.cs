@@ -5,7 +5,7 @@ public class PickUp : MonoBehaviour
     public Transform dest;
     void OnMouseDown()
     {
-        /*        GetComponent<BoxCollider>().enabled = false;*/
+        GetComponent<BoxCollider>().enabled = false;
         GetComponent<Rigidbody>().freezeRotation = true;
         GetComponent<Rigidbody>().useGravity = false;
         this.transform.position = dest.position;
@@ -17,6 +17,6 @@ public class PickUp : MonoBehaviour
         this.transform.parent = null;
         GetComponent<Rigidbody>().useGravity = true;
         GetComponent<Rigidbody>().freezeRotation = false;
-        /*GetComponent<BoxCollider>().enabled = true;*/
+        GetComponent<BoxCollider>().enabled = true;
     }
 }

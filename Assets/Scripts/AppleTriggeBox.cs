@@ -25,6 +25,8 @@ public class AppleTriggeBox : MonoBehaviour
     public TotalAppleText totalAppleText;
     public RedAppleText redAppleText;
 
+    public GameObject completeLevelUI;
+
     private Color m_oldColor = Color.white;
 
     void OnTriggerEnter(Collider other)
@@ -47,7 +49,7 @@ public class AppleTriggeBox : MonoBehaviour
         }
         else
         {
-            Debug.Log("No Tag");
+            Debug.Log("OnTriggerEnter: No Tag");
         }
         ShowPie();
     }
@@ -70,6 +72,9 @@ public class AppleTriggeBox : MonoBehaviour
             gameConductor.subtractGreenCount();
             Debug.Log("Green: Total:" + gameConductor.TotalCountDisplay + "::" + gameConductor.RedCountDisplay);
             DisplayOnCanvas();
+        } else
+        {
+            Debug.Log("OnTriggerExit: No Tag");
         }
         ShowPie();
     }
@@ -88,7 +93,7 @@ public class AppleTriggeBox : MonoBehaviour
             m_oldColor = triggerRenderer.material.color;
             triggerRenderer.material.color = Color.yellow;
             applePieToggler.rend.enabled = true;
-            gameConductor.CompleteLevel();
+            StartCoroutine(CompleteLevel());
         }
         else
         {
@@ -96,5 +101,11 @@ public class AppleTriggeBox : MonoBehaviour
             triggerRenderer.material.color = m_oldColor;
             applePieToggler.rend.enabled = false;
         }
+    }
+
+    IEnumerator CompleteLevel()
+    {
+        yield return new WaitForSeconds(5);
+        completeLevelUI.SetActive(true);
     }
 }
