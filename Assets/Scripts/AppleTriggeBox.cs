@@ -32,19 +32,19 @@ public class AppleTriggeBox : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         GameObject gameObject = other.gameObject;
-        Debug.Log("OnTriggerEnter: " + gameObject.ToString());
+        //Debug.Log("OnTriggerEnter: " + gameObject.ToString());
         if (gameObject.CompareTag("RedApple"))
         {
             gameObject.GetComponent<RedAppleData>().isRed = true;
             gameConductor.addRedCount();
-            Debug.Log("Red: Total:" + gameConductor.TotalCountDisplay + "||" + gameConductor.RedCountDisplay);
+            Debug.Log("OnTriggerEnter: " + gameObject.ToString() + "Red: Total:" + gameConductor.TotalCountDisplay + "||" + gameConductor.RedCountDisplay);
             DisplayOnCanvas();
         }
         else if (gameObject.CompareTag("GreenApple"))
         {
             gameObject.GetComponent<RedAppleData>().isRed = false;
             gameConductor.addGreenCount();
-            Debug.Log("Green: Total:" + gameConductor.TotalCountDisplay + "||" + gameConductor.RedCountDisplay);
+            Debug.Log("OnTriggerEnter: " + gameObject.ToString() + "Green: Total:" + gameConductor.TotalCountDisplay + "||" + gameConductor.RedCountDisplay);
             DisplayOnCanvas();
         }
         else
@@ -54,25 +54,34 @@ public class AppleTriggeBox : MonoBehaviour
         ShowPie();
     }
 
+
+    //void OnTriggerExit(Collider other)
+    //{
+    //    Debug.Log("OnTriggerExit::::::" + other.ToString());
+    //}
+
+
     void OnTriggerExit(Collider other)
     {
         GameObject gameObject = other.gameObject;
-        Debug.Log("OnTriggerExit: " + gameObject.ToString());
+        //Debug.Log("OnTriggerExit: " + gameObject.ToString());
 
         if (gameObject.CompareTag("RedApple"))
         {
             gameObject.GetComponent<RedAppleData>().isRed = true;
             gameConductor.subtractRedCount();
-            Debug.Log("Red: Total:" + gameConductor.TotalCountDisplay + "::" + gameConductor.RedCountDisplay);
+            Debug.Log("OnTriggerExit: " + gameObject.ToString()
+                + "Red: Total:" + gameConductor.TotalCountDisplay + "::" + gameConductor.RedCountDisplay);
             DisplayOnCanvas();
         }
         else if (gameObject.CompareTag("GreenApple"))
         {
             gameObject.GetComponent<RedAppleData>().isRed = false;
             gameConductor.subtractGreenCount();
-            Debug.Log("Green: Total:" + gameConductor.TotalCountDisplay + "::" + gameConductor.RedCountDisplay);
+            Debug.Log("OnTriggerExit: " + gameObject.ToString() + "Green: Total:" + gameConductor.TotalCountDisplay + "::" + gameConductor.RedCountDisplay);
             DisplayOnCanvas();
-        } else
+        }
+        else
         {
             Debug.Log("OnTriggerExit: No Tag");
         }
