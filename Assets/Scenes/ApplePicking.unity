@@ -1800,7 +1800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textDisplay: {fileID: 1428685966}
-  secondsLeft: 54
+  secondsLeft: 60
   takingAway: 0
   gameConductor: {fileID: 1231872000}
 --- !u!4 &1253887802
